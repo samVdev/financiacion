@@ -33,15 +33,15 @@ const financiaciones = [
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       <CardDash icon="fa-solid fa-users" color="bg-orange-100 text-orange-600" :value="countedData.clients"
-        label="Total Cliente" />
+        label="Total Cliente" @click="() => $router.push('/clients')"/>
       <CardDash icon="fa-solid fa-motorcycle" color="bg-blue-100 text-blue-600" :value="countedData.bikes"
-        label="Total Motos" />
+        label="Total Motos" @click="() => $router.push('/clients')"/>
       <CardDash icon="fa-solid fa-dollar-sign" color="bg-green-100 text-green-600" :value="countedData.earnigs"
-        label="Ingresos del Mes" />
+        label="Ingresos del Mes" @click="() => $router.push('/clients')"/>
       <CardDash icon="fa-solid fa-wallet" color="bg-purple-100 text-purple-600" :value="countedData.activesPayment"
-        label="Financiaciones Activas" />
+        label="Financiaciones Activas" @click="() => $router.push('/clients')"/>
       <CardDash icon="fa-solid fa-triangle-exclamation" color="bg-pink-100 text-pink-600"
-        :value="countedData.manteniment" label="Mantenimientos Pendientes" />
+        :value="countedData.manteniment" label="Mantenimientos Pendientes" @click="() => $router.push('/clients')"/>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 py-6">

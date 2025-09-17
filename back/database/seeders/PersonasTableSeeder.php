@@ -32,13 +32,17 @@ class PersonasTableSeeder extends Seeder
             'earnings_month' => 9999
         ]);
 
-        /*Personas::create([
+        Personas::create([
             'fullName' => 'Pablo Gómez',
+            'cedula' => 12345611,
             'phone' => '987654321',
+            'direction' => 'test dir',
+            'date' => '1290-02-21',
+            'earnings_month' => 9999
         ]);
 
 
-        Personas::create([
+        /*Personas::create([
             'fullName' => 'JUan Gómez',
             'phone' => '987654321',
         ]);
@@ -56,6 +60,5 @@ class PersonasTableSeeder extends Seeder
             'phone' => '987654321',
         ]);
 */
-
     }
 }

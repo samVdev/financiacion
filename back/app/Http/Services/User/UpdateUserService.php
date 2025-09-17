@@ -16,8 +16,11 @@ class UpdateUserService
         try {
             $data = $request->all();
 
-            $user = User::where('uuid', $uuid)->first();
-
+            $user = User::where([
+                ['uuid', $uuid], 
+                ['users.id', '>', 1]
+            ])->first();
+            
             if (!$user) return response()->json(['message' => 'Usuario no encontrado'], 404);
 
             if (isset($data["password"]) && $data["password"]) {

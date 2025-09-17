@@ -17,19 +17,19 @@ class RoleSeeder extends Seeder
         Role::create([
             "name" => "SuperAdmin",
             "description" => "Super Administrator",
-            "menu_ids" => [ 1, 2, 3, 4],
+            "menu_ids" => [ 1, 2, 3, 4, 5],
         ]);
 
         Role::create([
             "name" => "admin",
             "description" => "Administrator",
-            "menu_ids" => [ 1],
+            "menu_ids" => [1],
         ]);
 
         Role::create([
             "name" => "Cliente",
             "description" => "Cliente",
-            "menu_ids" => [5],
+            "menu_ids" => [6],
         ]);
         
         /*Role::create([

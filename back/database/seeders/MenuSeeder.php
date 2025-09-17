@@ -17,7 +17,9 @@ class MenuSeeder extends Seeder
 
         Menu::create(["title" => "Dashboard", "menu_id" => null, "path" => "dashboard", "icon" => "fas fa-home", "sort" => 1]);
 
-        Menu::create(["title" => "Usuarios", "menu_id" => null, "path" => "users", "icon" => "user", "sort" => 2]);
+        Menu::create(["title" => "Clientes", "menu_id" => null, "path" => "clients", "icon" => "fa-solid fa-user-group", "sort" => 2]);
+
+        Menu::create(["title" => "Usuarios", "menu_id" => null, "path" => "users", "icon" => "user", "sort" => 3]);
 
         Menu::create(["title" => "Menus", "menu_id" => null, "path" => "menus", "icon" => "list", "sort" => 12]);
 

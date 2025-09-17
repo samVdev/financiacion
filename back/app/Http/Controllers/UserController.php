@@ -71,7 +71,11 @@ class UserController extends Controller
      */
     public function destroy(Request $request): JsonResponse
     {      
-        $user = User::where('uuid', $request->uuid)->first();
+        $user = User::where([
+            ['uuid', $request->uuid], 
+            ['users.id', '>', 1]
+        ])->first();
+        
         $persona = Personas::where('id', $user->persona_id)->first();
         if(!$user || !$persona) return response()->json(['error' => 'Usuario no encontrado'], 404);
         $user->delete();

@@ -15,8 +15,6 @@ export default () => {
         name: '',
         email: '',
         tel: '',
-        apt: '',
-        tower: '',
     })
     
     const passwords = ref({

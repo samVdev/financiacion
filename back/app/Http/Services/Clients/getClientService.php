@@ -1,27 +1,24 @@
 <?php
 
-namespace App\Http\Services\User;
+namespace App\Http\Services\Clients;
 
 use Illuminate\Http\JsonResponse;
 use App\Models\User;
 
 
-class getUserService
+class getClientService
 {
     static public function index(string $uuid): JsonResponse
     {
         try {
             $user = User::with(['persona' => function($query) {
-                $query->select('id', 'fullName', 'phone', 'date', 'direction', 'cedula');
+                $query->select('id', 'fullName', 'phone', 'date', 'direction', 'cedula', 'earnings_month');
             }])
             ->select('email', 'persona_id', 'role_id')
-            ->where([
-                ['uuid', $uuid], 
-                ['users.id', '>', 1]
-            ])
+            ->where('uuid', $uuid)
             ->first();
         
-            if (!$user) return response()->json(['message' => 'Usuario no encontrado'], 404);
+            if (!$user) return response()->json(['message' => 'Cliente no encontrado'], 404);
         
             $data = [
                 "email" => $user->email ?? '',
@@ -30,14 +27,14 @@ class getUserService
                 'dateN' => $user->persona->date ?? '',
                 'dir' => $user->persona->direction ?? '',
                 'phone' => $user->persona->phone ?? '',
-                'role_id' => $user->role_id ?? '0'
+                'earnings' => $user->persona->earnings_month ?? '',
             ];
         
             return response()->json($data, 200);
         
         } catch (\Exception $e) {
             return response()->json([
-                'message' => 'Ocurrió un error al obtener los datos del usuario'
+                'message' => 'Ocurrió un error al obtener los datos del cliente'
             ], 500);
         }
         

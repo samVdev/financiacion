@@ -11,6 +11,7 @@ import AuthRoutes from "@/modules/Auth/routes"
 import AuthorizationRoutes from "@/modules/Authorization/routes"
 import UserRoutes from "@/modules/User/routes"
 import GuestRoutes from "@/modules/guest/routes"
+import ClientsRoutes from "@/modules/Clients/routes"
 
 const storeAuth = computed(() => useAuthStore())
 
@@ -19,6 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   ...AuthorizationRoutes.map(route => route),
   ...UserRoutes.map(route => route),
   ...GuestRoutes.map(route => route),
+  ...ClientsRoutes.map(route => route),
 ]
 
 const router = createRouter({

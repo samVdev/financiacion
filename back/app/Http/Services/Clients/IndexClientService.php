@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services\User;
+namespace App\Http\Services\Clients;
 
 //use App\Http\Resources\UserCollection;
 //use App\Http\Resources\UserResource;
@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-class IndexUserService
+class IndexClientService
 {
 
     static public function execute(Request $request): JsonResponse
@@ -20,27 +20,31 @@ class IndexUserService
             $limit = $request->input("limit", 10);
             $search = $request->input("search");
             $sort = $request->input("sort");
-            $facture = $request->input("facture");
             $direction = $request->input("direction") == "desc" ? "desc" : "asc";
 
             $query = User::query()
                 ->join('personas', 'users.persona_id', '=', 'personas.id')
-                ->join('roles', 'roles.id', '=', 'users.role_id')
                 ->select(
                     'fullName',
+                    'earnings_month',
+                    'date',
+                    'cedula',
                     'phone',
-                    'name',
                     'email',
                     'users.uuid',
                 )
-                ->where('users.id', '>', 1)
-                ->groupBy('fullName', 'phone', 'name', 'email', 'users.uuid');
+                ->where([
+                    ['role_id', '=', 3],
+                    ['users.id', '>', 1],
+                ])
+                ->groupBy('fullName', 'phone', 'email', 'cedula', 'date', 'earnings_month', 'users.uuid');
 
             if ($search) {
                 $query->where(function ($query) use ($search) {
                     $query
                         ->where("personas.fullName", "ilike", "%$search%")
-                        ->orWhere("roles.name", "ilike", "%$search%")
+                        ->orWhere("personas.cedula", "ilike", "%$search%")
+                        ->orWhere("personas.date", "ilike", "%$search%")
                         ->orWhere("users.email", "ilike", "%$search%")
                         ->orWhere("personas.phone", "ilike", "%$search%");
                 });
@@ -51,7 +55,9 @@ class IndexUserService
                     'name' => 'fullName',
                     'email' => 'email',
                     'phone' => 'phone',
-                    'rol' => 'name'
+                    'cedula' => 'cedula',
+                    'dateN' => 'date',
+                    'earnings' => 'earnings_month',
                 ];
                 if (isset($columnMap[$sort])) {
                     $query->orderBy($columnMap[$sort], $direction);
@@ -63,10 +69,12 @@ class IndexUserService
             $users = $users->map(function ($user) {
                 return [
                     'uuid' => $user->uuid,
-                    'rol' => $user->name,
-                    'email' => $user->email,
-                    'phone' => $user->phone,
                     'nombre' => $user->fullName,
+                    'email' => $user->email,
+                    'cedula' => $user->cedula,
+                    'dateN' => $user->date,
+                    'phone' => $user->phone,
+                    'earnings' => $user->earnings_month,
                 ];
             });
 

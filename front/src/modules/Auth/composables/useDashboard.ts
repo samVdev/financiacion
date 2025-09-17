@@ -29,12 +29,12 @@ export default () => {
         }
     }
 
-    const redirectTo = (e: any, to: string, params?: any) => {
-        const rect = e.target.getBoundingClientRect();
+    const redirectTo = (to: string, params?: any) => {
+        /*const rect = e.target.getBoundingClientRect();
         modalStyle.value = {
             "--modal-top": `${rect.top}px`,
             "--modal-left": `${rect.left}px`,
-        };
+        };*/
         router.push({ path: to, query: {...params} });
     };
     

@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue"
 import type User from "../types/User"
-import type Role from "../types/Role"
 import Loader from "@/components/Loader.vue";
-import InputPassword from "@/components/inputPassword.vue";
 import MiniTitle from "@/components/miniTitle.vue";
 
 const props = defineProps<{
@@ -11,7 +9,6 @@ const props = defineProps<{
   user: User
   sending: boolean
   errors: any
-  roles: Role[]
 }>()
 
 const emit = defineEmits<{
@@ -28,11 +25,10 @@ const submit = async () => {
     name: form.name,
     email: form.email,
     phone: form.phone,
-    password: form.password,
-    role_id: form.role_id,
     cedula: form.cedula,
     dateN: form.dateN,
-    dir: form.dir
+    dir: form.dir,
+    earnings: form.earnings
   }, props.uuid)
 }
 
@@ -44,7 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <form @submit.prevent="submit" class="p-6 space-y-6 h-full">
+  <form @submit.prevent="submit" class="space-y-6 ">
 
     <MiniTitle class="lg:col-span-2" text="Datos personales" />
 
@@ -57,7 +53,7 @@ onMounted(() => {
 
       <div>
         <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">Cédula</label>
-        <input type="text" id="cedula" required v-model="form.cedula" placeholder="Cédula"
+        <input type="text" id="cedula" required v-model="form.cedula" placeholder="Cédula" maxlength="15"
           class="p-3 w-full border border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-[#FF7539] focus:border-[#FF7539] transition-all" />
       </div>
 
@@ -80,34 +76,10 @@ onMounted(() => {
           class="p-3 w-full border border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-[#FF7539] focus:border-[#FF7539] transition-all" />
       </div>
 
-      <MiniTitle class="mt-5 lg:col-span-2" text="Datos del Usuario" />
-
       <div>
-        <label for="rol" class="block text-sm font-semibold text-gray-700 mb-2">Rol</label>
-        <select id="rol" required v-model="form.role_id"
-          class="p-3 w-full border border-gray-200 rounded-xl shadow-sm capitalize focus:ring-2 focus:ring-[#FF7539] focus:border-[#FF7539] transition">
-          <option value="" disabled>Selecciona un Rol</option>
-          <option v-for="rol in roles" :key="rol.id" :value="rol.id">{{ rol.name }}</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="contraseña" class="block text-sm font-semibold text-gray-700 mb-2">Contraseña</label>
-        <div v-if="activeInputPassword">
-          <InputPassword v-model="form.password" name="password" placeholder="Ingresa la contraseña" class="mb-3" />
-
-          <button v-if="uuid" type="button" @click="activeInputPassword = false"
-            class="w-full md:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-xl font-medium transition">
-            Quitar contraseña
-          </button>
-        </div>
-
-        <div v-else>
-          <button type="button" @click="activeInputPassword = true"
-            class="w-full md:w-auto bg-[#FF7539] hover:bg-[#D54A5C] text-white px-4 py-2 rounded-xl font-semibold transition">
-            Cambiar contraseña
-          </button>
-        </div>
+        <label for="correo" class="block text-sm font-semibold text-gray-700 mb-2">Ingresos Mensuales</label>
+        <input type="text" id="earnings" required v-model="form.earnings" placeholder="Ingresos Mensuales"
+          class="p-3 w-full border border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-[#FF7539] focus:border-[#FF7539] transition-all" />
       </div>
     </div>
 
@@ -116,7 +88,6 @@ onMounted(() => {
       <textarea type="date" id="dir" placeholder="Dirección (opcional)" v-model="form.dir" maxlength="500"
         class="p-3 w-full border border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-[#FF7539] focus:border-[#FF7539] transition-all resize-none" />
     </div>
-
 
     <div class="flex justify-end space-x-3">
       <button v-if="!sending" type="submit"

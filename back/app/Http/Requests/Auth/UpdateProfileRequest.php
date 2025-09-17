@@ -33,8 +33,6 @@ class UpdateProfileRequest extends FormRequest
             'name'  => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'tel'   => 'required|string|digits_between:7,15',
-            'tower' => 'required|string|max:100',
-            'apt'   => 'required|string|max:50',
         ];
     }
 

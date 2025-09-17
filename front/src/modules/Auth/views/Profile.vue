@@ -44,15 +44,6 @@ onMounted(() => {
                   <input type="tel" v-model="userInfo.tel" name="tel" id="tel" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                   placeholder="Ingresa tu teléfono" required>
               </div>
-
-              <div class="w-full">
-                  <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Torre</label>
-                  <input type="text" v-model="userInfo.tower" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" disabled>
-              </div>
-              <div class="w-full">
-                  <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apartamento</label>
-                  <input type="tel" v-model="userInfo.apt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" disabled>
-              </div>
           </div>
             <button type="submit" class="text-white block bg-[#FF7539] hover:bg-[#f3455c] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                   Actualizar información

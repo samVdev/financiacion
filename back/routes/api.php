@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TokenController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\boardsController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CondominiumController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\EarningsController;
@@ -47,6 +48,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
             Route::post('/{uuid}', [UserController::class, 'update']);
             Route::delete('/{uuid}', [UserController::class, 'destroy']);
             Route::post('/auth/avatar', [AvatarController::class, 'store']);
+        });
+
+        Route::prefix('clients')->group(function () {
+            Route::get('/{uuid}', [ClientController::class, 'show']);
+            Route::get('/', [ClientController::class, 'index']);
+            Route::post('/', [ClientController::class, 'store']);
+            Route::post('/{uuid}', [ClientController::class, 'update']);
+            Route::delete('/{uuid}', [ClientController::class, 'destroy']);
         });
 
         Route::prefix('menus')->group(function () {

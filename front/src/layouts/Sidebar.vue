@@ -44,7 +44,7 @@ onMounted(async () => {
 
     <div
       :class="!isClose ? 'translate-x-0 ease-out shadow-lg w-[40vw] md:w-[30vw] lg:w-[15vw] 2xl:w-[12vw]' : '-translate-x-1 ease-in w-full md:w-[9vw] 2xl:w-[4vw]'"
-      class="fixed z-30 h-full overflow-auto rounded-r-[5vh] inset-y-0 left-0 transition duration-300 transform overflow-y-auto lg:static lg:inset-x-0 hidden md:block">
+      class="fixed h-full overflow-auto rounded-r-[5vh] inset-y-0 left-0 transition duration-300 transform overflow-y-auto lg:static lg:inset-x-0 hidden md:block">
       <Menu :menus="menus" @closeMenuAuto="() => null" />
     </div>
 

@@ -1,10 +1,6 @@
-<script setup lang="ts">
-import imageBg from '../../../../public/bg.svg'
-</script>
-
 <template>
   <section id="requeriments" class="relative w-[90%] mx-auto my-16 rounded-3xl py-20 bg-[#ff7539] text-white">
-    <img :src="imageBg" class="absolute inset-0 w-full h-full"/>
+    <img src="/bg.svg" class="absolute inset-0 w-full h-full"/>
 
     <div class="relative max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-4xl md:text-5xl font-extrabold mb-12">

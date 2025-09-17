@@ -36,17 +36,17 @@ class UserSeeder extends Seeder
           ]
         );
 
-        /*\App\Models\User::factory(1)->create([
+        \App\Models\User::factory(1)->create([
             'email' => 'useer@example.com',
             'suspend' => false,
             'persona_id' => 3,
             'email_verified_at' => null,
             'is_admin' => false,
-            'role_id' => 3       
+            'role_id' => 2       
           ]
         );
 
-        \App\Models\User::factory(1)->create([
+        /*\App\Models\User::factory(1)->create([
             'email' => 'asd@example.com',
             'suspend' => false,
             'persona_id' => 4,
