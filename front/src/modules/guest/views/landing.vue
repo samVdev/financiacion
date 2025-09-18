@@ -32,7 +32,7 @@ import CarsCarrousel from '../components/CarsCarrousel.vue';
                 <div class="absolute inset-0 bg-black/60"></div>
 
                 <a to="/requisitos" data-aos="fade-left" href="#requeriments"
-                    class="md:w-[30%] mx-auto mb-[10vh] bg-[#FF7539] hover:bg-white hover:text-[#FF7539] transition-all text-white font-bold py-3 sm:py-4 rounded-3xl text-lg sm:text-xl flex items-center justify-center">
+                    class="px-10 md:w-[20%] mx-auto mb-[10vh] bg-[#FF7539] hover:bg-white hover:text-[#FF7539] transition-all text-white font-bold py-3 sm:py-4 rounded-3xl text-lg sm:text-xl flex items-center justify-center">
                     Ver requisitos
                     <font-awesome-icon icon="fa-solid fa-arrow-down-long" class="ml-2"/>
             </a>

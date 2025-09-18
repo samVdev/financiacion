@@ -1,7 +1,7 @@
 <template>
-  <section class="h-[80vh] md:h-[100vh] overflow-hidden">
-    <Carousel v-bind="config">
-      <Slide v-for="(img, i) in images" :key="i">
+  <section class="overflow-hidden h-[80vh] md:h-[100vh]">
+    <Carousel v-bind="config" class="h-full carousel-container">
+      <Slide v-for="(img, i) in images" :key="i" class="h-full slide-item">
         <img :src="img" alt="" class="imgCarrousel" />
       </Slide>
     </Carousel>
@@ -14,9 +14,9 @@ import { Carousel, Slide } from 'vue3-carousel'
 
 const config = {
   itemsToShow: 1,
-  autoplay: 2000,
+  autoplay: 3000,
   wrapAround: true,
-  transition: 400, // duración del fade en ms
+  transition: 800,
 }
 
 const images = [
@@ -27,7 +27,17 @@ const images = [
 </script>
 
 <style scoped>
+.carousel-container {
+  height: 100%;
+}
+
+.slide-item {
+  height: 100%;
+}
+
 .imgCarrousel {
-  @apply w-full h-full object-cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

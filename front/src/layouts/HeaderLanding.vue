@@ -10,7 +10,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-    <header class="fixed bg-white w-[80%] top-2 left-[10%] rounded-3xl border border-gray-200 gap-3 z-[1000] flex items-center justify-between h-[10vh] px-4 md:px-10 lg:px-20 2xl:h-[9vh]">
+    <header class="fixed bg-white w-[90%] md:w-[80%] top-2 left-[5%]  md:left-[10%] rounded-3xl border border-gray-200 gap-3 z-[1000] flex items-center justify-between h-[8vh] px-4 md:px-10 lg:px-20 2xl:h-[9vh]">
         <a href="#Inicio" class="text-[#FF7539] hover:text-[#ff8a58] transition-all block duration-200 font-bold text-2xl py-2">
             RENTAMOTORS
         </a>

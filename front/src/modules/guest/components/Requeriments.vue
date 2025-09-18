@@ -9,7 +9,7 @@
         <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg flex items-start gap-4 hover:bg-white/20 transition">
           <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-orange-500 text-2xl font-bold">1</span>
           <div>
-            <h3 class="text-lg font-semibold">Cédula de ciudadanía</h3>
+            <h3 class="text-lg font-semibold">Cédula de ciudadanía o Permiso P.E.P (si aplica)</h3>
             <p class="text-sm text-orange-100">Documento oficial vigente para validar identidad.</p>
           </div>
         </div>
@@ -72,14 +72,6 @@
 
         <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg flex items-start gap-4 hover:bg-white/20 transition">
           <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-orange-500 text-2xl font-bold">9</span>
-          <div>
-            <h3 class="text-lg font-semibold">Permiso P.E.P (si aplica)</h3>
-            <p class="text-sm text-orange-100">Requisito en caso de ser ciudadano venezolano.</p>
-          </div>
-        </div>
-
-        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg flex items-start gap-4 hover:bg-white/20 transition">
-          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-orange-500 text-2xl font-bold">10</span>
           <div>
             <h3 class="text-lg font-semibold">Copia del Permiso P.E.P al 150%</h3>
             <p class="text-sm text-orange-100">Ampliación del documento.</p>
