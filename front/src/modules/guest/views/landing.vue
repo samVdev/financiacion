@@ -4,13 +4,16 @@ import HeaderLanding from '@/layouts/HeaderLanding.vue';
 import CardItem from '../components/CardItem.vue';
 import Requeriments from '../components/Requeriments.vue';
 import Benefits from '@/layouts/landing/benefits.vue';
+import CarrouselInicial from '../components/CarrouselInicial.vue';
+import BikesCarrousel from '../components/BikesCarrousel.vue';
+import CarsCarrousel from '../components/CarsCarrousel.vue';
 
 </script>
 
 <template>
     <main class="w-full bg-white">
         <HeaderLanding />
-        <Welcome>
+        <!--Welcome>
             <div class="w-[40%] mx-auto grid grid-cols-1 place-content-center gap-5 z-[1000] pb-[10vh] md:grid-cols-2">
                 <router-link to="/login" data-aos="fade-right"
                     class="relative bg-[#FF7539] hover:text-[#FF7539] hover:bg-white transition-all text-white font-bold w-full text-center mt-4 h-[60px] grid place-items-center rounded-3xl">
@@ -21,7 +24,42 @@ import Benefits from '@/layouts/landing/benefits.vue';
                     <p>Ver requisitos</p>
                 </router-link>
             </div>
-        </Welcome>
+        </Welcome-->
+
+
+        <section class="relative">
+            <article class="absolute inset-0 z-10 px-4 sm:px-8 flex flex-col justify-end text-center">
+                <div class="absolute inset-0 bg-black/60"></div>
+
+                <a to="/requisitos" data-aos="fade-left" href="#requeriments"
+                    class="md:w-[30%] mx-auto mb-[10vh] bg-[#FF7539] hover:bg-white hover:text-[#FF7539] transition-all text-white font-bold py-3 sm:py-4 rounded-3xl text-lg sm:text-xl flex items-center justify-center">
+                    Ver requisitos
+                    <font-awesome-icon icon="fa-solid fa-arrow-down-long" class="ml-2"/>
+            </a>
+
+                <!--div class="relative z-20 mt-10 md:mt-0 space-y-6">
+                    <h1 class="font-regular text-2xl sm:text-3xl md:text-4xl xl:text-[6vh] font-extrabold text-[#FF7539] drop-shadow-lg"
+                        data-aos="fade-down">
+                        CUMPLE TU SUEÑO DE TENER TU
+                    </h1>
+
+                    <h2 class="font-regular text-[10vw] sm:text-[8vw] md:text-[6vw] xl:text-[10vh] font-extrabold text-white drop-shadow-lg"
+                        data-aos="fade-up">
+                        PROPIO VEHÍCULO
+                    </h2>
+
+                    <router-link to="/requisitos" data-aos="fade-left"
+                        class="md:w-[30%] mx-auto bg-[#FF7539] hover:bg-white hover:text-[#FF7539] transition-all text-white font-bold py-3 sm:py-4 rounded-3xl text-lg sm:text-xl flex items-center justify-center">
+                        Ver requisitos
+                    </router-link>
+                </div-->
+            </article>
+
+            <CarrouselInicial />
+        </section>
+
+
+
         <div class="bg-gray-100">
 
             <div id="benefits" class="bg-[#ff7539] px-0 pt-20 pb-40 mt-10 md:pt-20 text-center text-white">
@@ -34,7 +72,7 @@ import Benefits from '@/layouts/landing/benefits.vue';
             <Benefits />
 
             <router-link to="/login" data-aos="fade-up"
-                class="my-16 mx-auto md:w-[30%] bg-[#FF7539] hover:text-[#FF7539] hover:bg-white transition-all text-white font-bold w-full text-center h-[60px] grid place-items-center rounded-3xl">
+                class="my-16 mx-auto md:w-[30%] bg-[#160e0a] hover:text-[#FF7539] hover:bg-white transition-all text-white font-bold w-full text-center h-[60px] grid place-items-center rounded-3xl">
                 <p>Iniciar Sesión</p>
             </router-link>
 
@@ -45,17 +83,7 @@ import Benefits from '@/layouts/landing/benefits.vue';
                         Motos <span class="text-[#FF7539]">Disponibles</span>
                     </h2>
 
-                    <div class="grid md:grid-cols-3 gap-10">
-                        <CardItem
-                            image="https://preview.redd.it/pgvqq1673u191.jpg?width=1080&crop=smart&auto=webp&s=25cdaf7f4692f819cee19496ca3c87a6971123dc"
-                            title="Yamaha MT-07" description="Deportiva y versátil para ciudad o carretera." />
-                        <CardItem
-                            image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Honda_CB500_twin.jpg/500px-Honda_CB500_twin.jpg"
-                            title="Honda CB500" description="Equilibrio perfecto entre potencia y confort." />
-                        <CardItem
-                            image="https://mcn-images.bauersecure.com/wp-images/4466/1440x960/gsx-s750.jpg?mode=max&quality=90&scale=down"
-                            title="Suzuki GSX-S750" description="Diseñada para quienes buscan adrenalina." />
-                    </div>
+                    <BikesCarrousel />
                 </div>
             </section>
 
@@ -65,18 +93,7 @@ import Benefits from '@/layouts/landing/benefits.vue';
                     <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-16">
                         Carros <span class="text-[#FF7539]">Disponibles</span>
                     </h2>
-
-                    <div class="grid md:grid-cols-3 gap-10">
-                        <CardItem
-                            image="https://acnews.blob.core.windows.net/imgnews/large/NAZ_0c11779a0db545558af3bdcd55df69c5.jpg"
-                            title="Audi A3" description="Elegancia, confort y tecnología alemana." />
-                        <CardItem
-                            image="https://cdn.sanity.io/images/90qxor39/production/d727bb2e9d8a075a43772a0080e0344a2aa72f04-800x450.jpg?w=800&h=450&q=75&fit=max&auto=format"
-                            title="Toyota Corolla" description="Eficiencia y confiabilidad para tu día a día." />
-                        <CardItem
-                            image="https://www.topgear.com/sites/default/files/cars-car/image/2024/12/54196859052_9249719e93_o.jpg"
-                            title="Ford Mustang" description="Potencia y estilo en cada kilómetro." />
-                    </div>
+                    <CarsCarrousel/>
                 </div>
             </section>
 
@@ -85,7 +102,21 @@ import Benefits from '@/layouts/landing/benefits.vue';
 
         </div>
         <footer class="bg-gray-900 text-gray-400 text-center py-6">
-            <p>© 2025 RentaAuto. Todos los derechos reservados.</p>
+            <p>© 2025 RentaMotors. Todos los derechos reservados.</p>
         </footer>
     </main>
 </template>
+
+
+<style>
+@font-face {
+    font-family: "Boldonse";
+    src: url("/fonts/ArchivoBlack-Regular.ttf");
+}
+
+.font-regular {
+    font-family: "Boldonse", system-ui, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+</style>

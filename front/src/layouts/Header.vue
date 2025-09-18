@@ -2,7 +2,6 @@
 import { ref, computed } from "vue";
 import { useAuthStore } from "@/modules/Auth/stores"
 import { useSidebar } from "@/composables/useSidebar"
-import Logout from "@/modules/Auth/components/Logout.vue"
 
 const url = import.meta.env.VITE_APP_API_URL
 
